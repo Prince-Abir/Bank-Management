@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class ConnectionReceiver {
 
-    public static String url = "jdbc:mysql://Your Hostname:Your port/Your DatabaseName";
-    public static String userName = "Your Database UserName";
-    public static String password = "Your Database Password";
+    public static String url = "jdbc:mysql://localhost:3306/money manager";
+    public static String userName = "root";
+    public static String password = "prince";
 
 
     private static Connection connection;

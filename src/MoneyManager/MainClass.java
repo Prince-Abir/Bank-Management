@@ -120,6 +120,12 @@ class All_Functionality {
 
                             preStmt.executeUpdate();
                             System.out.println("\nYou Have Registered Successfully :)!");
+                                try {
+                                    Thread.sleep(2000);
+                                } catch (InterruptedException e) {
+                                    System.out.println("Thread.Sleep Problem in line 124");
+                                }
+                                    Login();
                         } else {
 
                             System.out.println("\nSorry ): Password Does not Match.Try Again!\n\n");
@@ -140,21 +146,12 @@ class All_Functionality {
 
                 }
 
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Login();
-
-
         }
         catch (SQLException e){
             System.out.println("MySQL Database Problem");
         }
 
     }
-
 
 
 
@@ -191,7 +188,7 @@ class All_Functionality {
 
            }
            System.out.println("\nSorry ): Email or Password Does not Match!\n\n");
-           welcomeScreen();
+           Login();
        }
 
 
@@ -199,18 +196,19 @@ class All_Functionality {
         catch (InputMismatchException e){
 
             System.out.println("\n\nInvalid Input! Please Enter Your Correct Email and Password");
+            Login();
 
         }
 
        catch (SQLException sqlException){
 
            System.out.println("\n\nSorry You have not Registered yet!");
-           welcomeScreen();
 
        }
 
        catch (IOException ioException){
            System.out.println("\n\nBufferReader readLine Problem");
+
        }
 
     }
@@ -298,6 +296,7 @@ class All_Functionality {
         System.out.println("\n\n1. Deposit Money");
         System.out.println("2. Withdraw Money");
         System.out.println("3. Check Balance");
+        System.out.println("4. Exit");
 
 
         try {
@@ -312,14 +311,9 @@ class All_Functionality {
                 WidthDraw();
             } else if (choice == 3) {
                 BalanceStatus();
-            } else {
-                System.out.print("\nSorry ): Invalid Input\n\n");
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                Display();
+            }
+            else if (choice == 4) {
+                System.exit(0);
             }
         } catch (InputMismatchException rep) {
             System.out.print("\nSorry ): Invalid Input\n\n");
